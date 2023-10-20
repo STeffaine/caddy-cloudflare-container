@@ -1,2 +1,26 @@
-# caddy-cloudflare-continer
-A caddy docker continer with the Cloudflare DNS challange package
+# caddy-cloudflare-container
+
+A caddy docker container with the Cloudflare DNS challange package
+
+## Use it
+
+container reference `ghcr.io/steffaine/caddy-cloudflare-container:main`
+
+Or with Docker compose
+
+```yaml
+version: "3.7"
+
+services:
+  caddy:
+    image: ghcr.io/steffaine/caddy-cloudflare-container:main
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - /etc/caddy/Caddyfile:/etc/caddy/Caddyfile
+```
