@@ -4,7 +4,7 @@ A caddy docker container with the Cloudflare DNS challange package
 
 ## Use it
 
-container reference `ghcr.io/steffaine/caddy-cloudflare-container:main`
+container reference `ghcr.io/steffaine/caddy-cloudflare-container:<version>`
 
 Or with Docker compose
 
@@ -13,7 +13,7 @@ version: "3.7"
 
 services:
   caddy:
-    image: ghcr.io/steffaine/caddy-cloudflare-container:main
+    image: ghcr.io/steffaine/caddy-cloudflare-container:latest
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
