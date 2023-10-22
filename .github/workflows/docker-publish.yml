@@ -2,11 +2,11 @@ name: Docker container build and deploy
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "*" ]
     # Publish semver tags as releases.
-    tags: ["latest"]
+    tags: [ "*.*.*" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "*" ]
 
 env:
   # Use docker.io for Docker Hub if empty
