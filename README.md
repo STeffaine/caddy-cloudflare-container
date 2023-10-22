@@ -13,7 +13,7 @@ version: "3.7"
 
 services:
   caddy:
-    image: ghcr.io/steffaine/caddy-cloudflare-container:latest
+    image: ghcr.io/steffaine/caddy-cloudflare-container:<version>
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
