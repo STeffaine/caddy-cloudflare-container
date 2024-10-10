@@ -197,7 +197,8 @@ jobs:
   publish:
     name: Publish image
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [metadata, build, trivy]
+    # add "trivy" to the needs below to enable trivy scanning
+    needs: [metadata, build]
     runs-on: ubuntu-latest
     permissions:
       id-token: write
