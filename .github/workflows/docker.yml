@@ -120,11 +120,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ttl.sh/${{ needs.metadata.outputs.image-name }}:${{ github.sha }}
+          tags: ghcr.io/${{ needs.metadata.outputs.image-name }}:${{ github.sha }}
           labels: ${{ needs.metadata.outputs.labels }}
           platforms: ${{ needs.metadata.outputs.platforms }}
-          cache-from: type=registry,ref=ttl.sh/${{ needs.metadata.outputs.image-name }}:${{ needs.metadata.outputs.branch-name }}
-          cache-to: type=inline,mode=max
 
       # We don't need to sign the CI build because we use the digest as the
       # reference, which is immutable anyways. Tampering is not an issue.
@@ -229,7 +227,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ needs.metadata.outputs.tags }}
+          tags: |
+            ghcr.io/${{ needs.metadata.outputs.image-name }}:v${{ needs.metadata.outputs.caddy-version }}
+            ghcr.io/${{ needs.metadata.outputs.image-name }}:latest
           labels: ${{ needs.metadata.outputs.labels }}
           platforms: ${{ needs.metadata.outputs.platforms }}
           cache-from: type=registry,ref=${{ needs.build.outputs.image-ref }}
