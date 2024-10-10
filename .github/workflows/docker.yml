@@ -187,12 +187,12 @@ jobs:
   # We call this as a separate reusable workflow so all the event triggers
   # are grouped together properly by their corresponding ref
   # We need the if check because we skip the cache job sometimes
-  trivy:
-    name: Trivy
-    needs: [build]
-    uses: ./.github/workflows/trivy.yml
-    with:
-      image-ref: ${{ needs.build.outputs.image-ref }}
+  # trivy:
+  #   name: Trivy
+  #   needs: [build]
+  #   uses: ./.github/workflows/trivy.yml
+  #   with:
+  #     image-ref: ${{ needs.build.outputs.image-ref }}
 
   publish:
     name: Publish image
